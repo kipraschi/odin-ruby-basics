@@ -21,4 +21,29 @@ describe CaesarCipher do
       end
     end
   end
+  describe "#shift_letter" do
+    context "when input is a capital letter" do
+      it "returns a capital letter" do
+        original_letter = "C"
+        shift_factor = 5
+        encrypted_letter = "H"
+        expect(encryptor.shift_letter(original_letter, shift_factor)).to eq(encrypted_letter)
+      end
+    end
+    context "when input is a lowercase letter" do
+      it "returns a lowercase letter" do
+        original_letter = "x"
+        shift_factor = 8
+        encrypted_letter = "f"
+        expect(encryptor.shift_letter(original_letter, shift_factor)).to eq(encrypted_letter)
+      end
+    end
+    context "when input is a symbol" do
+      it "returns the same symbol" do
+        symbol = "?"
+        shift_factor = 32
+        expect(encryptor.shift_letter(symbol, shift_factor)).to eq(symbol)
+      end
+    end
+  end
 end
